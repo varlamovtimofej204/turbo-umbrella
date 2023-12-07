@@ -1,0 +1,16 @@
+.resume()
+        
+    }
+    
+    func getFuturePublisher() -> Future<String, URLError> {
+        Future { promise in
+            self.getEscapingClosure { value, error in
+                if let error = error {
+                    promise(.failure(error))
+                } else {
+                    promise(.success(value))
+                }
+            }
+        }
+    }
+}
